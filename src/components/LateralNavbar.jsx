@@ -1,4 +1,3 @@
-// import spotifyLogo from ""
 import * as Icon from "react-bootstrap-icons";
 
 const LateralNavbar = () => {
@@ -13,7 +12,7 @@ const LateralNavbar = () => {
                 <div className="container">
                   <a href="./homePage.html">
                     <img
-                      src="../spotify-logo.png"
+                      src="/spotify-logo.png"
                       className="navbar-logo"
                       alt="spotify logo"
                     />

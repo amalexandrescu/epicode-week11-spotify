@@ -1,16 +1,24 @@
-import { GET_SONGS } from "../actions";
+import { GET_SONGS, SELECT_SONG_CARD } from "../actions";
 
 const initialState = {
-  // we're already in the "book" slice of the Redux store
-  recentlyPlayed: [],
+  recentlyPlayedSongs: [],
+  selectedSongCard: "",
 };
 
 const recentlyPlayedReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SELECT_SONG_CARD:
+      return {
+        ...state,
+        recentlyPlayedSongs: [...state.recentlyPlayedSongs],
+        selectedSongCard: action.payload,
+      };
+
     case GET_SONGS:
       return {
         ...state,
-        recentlyPlayed: action.payload,
+        recentlyPlayedSongs: [...state.recentlyPlayedSongs, ...action.payload],
+        selectedSongCard: [...state.selectedSongCard],
       };
 
     default:

@@ -60,6 +60,10 @@
   width: 80vw;
 }
 
+.input-search {
+  width: 50vw !important;
+}
+
 .footer-row {
   width: 100vw;
 }
@@ -71,6 +75,53 @@
 
 .top-navbar {
   height: 10vh;
+}
+
+.recently-played-section-row {
+  overflow: hidden;
+  height: 250px;
+  background-color: red;
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+}
+
+.card-img-top {
+  height: 60%;
+}
+
+#jumbotron-container {
+  margin-top: -110px;
+}
+
+.jumbotron-bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 325px;
+  margin-bottom: 0;
+  filter: brightness(90%);
+}
+
+.card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.card-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+#image-music-player {
+  width: 70px;
+  height: 70px;
+  background-color: green;
 }
 
 /*-------------------------- TOP NAVBAR --------------------------*/

@@ -1,12 +1,12 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import recentlyPlayedReducer from "../reducers/recentlyPlayedReducer";
+import mainSearchReducer from "../reducers/mainSearchReducer";
 // configureStore will set up the Redux Store for us!
 
 const bigReducer = combineReducers({
-  recentlyPlayedSongs: recentlyPlayedReducer,
-  // jobs: jobsReducer,
-  // favorites: favoritesReducer,
-  // searchedResults: jobsReducer,
+  recentlyPlayedSection: recentlyPlayedReducer,
+  currentSearch: mainSearchReducer,
+  // currentSearchFetchedSongs: mainSearchReducer,
 });
 
 const store = configureStore({
