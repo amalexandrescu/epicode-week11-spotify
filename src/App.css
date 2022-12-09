@@ -36,3 +36,292 @@
     transform: rotate(360deg);
   }
 }
+.my-lateral-navbar {
+  /* background-color: green !important; */
+  /* width: 10vw; */
+  height: 90vh;
+  width: 20vw;
+}
+
+.main-row {
+  width: 100vw;
+  /* margin-inline: 15px; */
+}
+
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: green;
+  padding-inline: 0;
+}
+
+.right-container {
+  height: 90vh;
+  width: 80vw;
+}
+
+.footer-row {
+  width: 100vw;
+}
+
+.music-player-container {
+  height: 10vh;
+  width: 100vw;
+}
+
+.top-navbar {
+  height: 10vh;
+}
+
+/*-------------------------- TOP NAVBAR --------------------------*/
+
+#navbar-container {
+  background-color: transparent;
+  transition: background-color 0.5s;
+}
+
+.nav-active {
+  background-color: rgb(64, 64, 64) !important;
+}
+
+#navbar-container nav {
+  background-color: #6c676721;
+}
+
+#profile-tag {
+  background-color: #170708;
+  color: var(--color-white);
+  border-radius: 100px;
+  display: block;
+  width: 150px;
+  height: 30px;
+}
+
+#profile-image {
+  display: inline-block;
+  min-height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  background-color: grey;
+  position: relative;
+}
+#dropdown-button {
+  width: auto;
+  height: auto;
+}
+
+#account-container {
+  border-radius: 50px;
+  background-color: #170708;
+  height: 30px;
+  width: 150px;
+  border: none;
+}
+
+.person-icon-account {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 1px;
+  bottom: 0;
+}
+
+.arrowLeftAndRight {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  background-color: #3b393952;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-left {
+  color: var(--color-white);
+  transition: background-color 0.5s;
+}
+
+.arrow-left:hover {
+  background-color: rgba(213, 207, 207, 0.369);
+}
+
+.arrow-right {
+  color: grey;
+}
+
+.lead {
+  font-size: 10px;
+}
+
+/*---------------------------------LATERAL NAVBAR-----------------------------*/
+
+.custom-navbar {
+  position: relative;
+  height: 90vh;
+  background-color: black;
+  width: 100%;
+  color: var(--color-gray);
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding-block: 20px;
+  padding-inline: 8px;
+}
+
+.custom-navbar .navbar-logo {
+  width: 135px;
+  height: auto;
+  object-fit: cover;
+}
+
+.active-link > .link-text,
+.active-link > .icon-div {
+  color: var(--color-white);
+}
+
+.custom-navbar .icon-div {
+  margin-right: 15px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 8px;
+}
+
+.custom-navbar .navbar-top .primary-options {
+  margin-block: 25px;
+}
+
+.custom-navbar .navbar-top .primary-options i,
+.install-icon {
+  font-size: 23px;
+}
+
+.custom-navbar .navbar-top a {
+  text-decoration: none;
+  color: var(--color-gray);
+}
+
+.custom-navbar .navbar-top .secondary-options .create-playlist-icon {
+  background-color: var(--color-gray);
+  color: black;
+  border-radius: 2px;
+}
+
+.custom-navbar .navbar-top .secondary-options .liked-songs-icon {
+  background: var(--color-linear);
+  border-radius: 2px;
+  /* filter: brightness(30%); */
+  box-shadow: inset 0px 0px 400px 110px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.4s ease-out;
+}
+
+.divider {
+  background-color: #252525;
+  border-width: 0.5px;
+  margin-block: 10px;
+}
+
+.custom-navbar .navbar-bottom {
+  float: left;
+  width: 100%;
+  overflow-y: auto;
+  max-height: calc(100% - 338px);
+  font-size: 0.8rem;
+}
+.custom-navbar .navbar-bottom .navbar-playlist {
+  list-style: none;
+}
+
+.custom-navbar .navbar-bottom .navbar-playlist .navbar-playlist-item {
+  margin-block: 6px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  cursor: default;
+}
+
+.navbar-bottom::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+.navbar-bottom::-webkit-scrollbar-track {
+  background: transparent; /* color of the tracking area */
+}
+
+.navbar-bottom::-webkit-scrollbar-thumb {
+  background-color: var(--color-darker-gray); /* color of the scroll thumb */
+  max-height: 50px;
+}
+
+.collaborative-playlist-item {
+  position: relative;
+  padding-right: 20px;
+}
+.collaborative-icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  font-size: 15px;
+  width: 15px;
+}
+
+.install-app {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  background-color: black;
+  z-index: 999;
+  padding-inline: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.install-app a {
+  text-decoration: none;
+  color: var(--color-gray);
+  transition: color 0.4s ease-out;
+}
+
+.link-text,
+.custom-navbar .navbar-top .secondary-options > div > a {
+  transition: color 0.4s ease-out;
+}
+
+.create-playlist-icon {
+  transition: background-color 0.4s ease-out;
+}
+
+.custom-navbar .navbar-bottom .navbar-playlist .navbar-playlist-item:hover,
+.custom-navbar .navbar-top .primary-options div > a:hover .link-text,
+.custom-navbar .navbar-top .secondary-options > div > a:hover,
+.custom-navbar .install-app > div:hover {
+  color: white;
+}
+
+.custom-navbar
+  .navbar-top
+  .secondary-options
+  .create-playlist
+  > a:hover
+  .create-playlist-icon {
+  background-color: white;
+}
+
+.custom-navbar
+  .navbar-top
+  .secondary-options
+  .liked-songs
+  > a:hover
+  .liked-songs-icon {
+  box-shadow: inset 0px 0px 400px 110px rgba(0, 0, 0, 0);
+}
+
+.install-app a:hover {
+  color: white;
+}
