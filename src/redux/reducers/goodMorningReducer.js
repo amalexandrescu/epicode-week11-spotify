@@ -16,9 +16,14 @@ const goodMorningReducer = (state = initialState, action) => {
       };
 
     case FETCH_SONGS_GM_SECTION:
+      const newSongsToAdd = action.payload.filter((song) => {
+        return !state.goodMorningSongs.find(
+          (existingSong) => existingSong.id === song.id
+        );
+      });
       return {
         ...state,
-        goodMorningSongs: [...state.goodMorningSongs, ...action.payload],
+        goodMorningSongs: [...state.goodMorningSongs, ...newSongsToAdd],
         // selectedSongCard: [...state.selectedSongCard],
         isLoading: state.isLoading,
       };

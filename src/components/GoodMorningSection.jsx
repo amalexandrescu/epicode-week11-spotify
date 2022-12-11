@@ -21,7 +21,6 @@ const GoodMorningSection = () => {
   const goodMorningSongsFetched = useSelector(
     (state) => state.goodMorningSection.goodMorningSongs
   );
-  console.log("gmsection songs fetched", goodMorningSongsFetched);
 
   // useEffect(() => {
   //   setFetchedSongs(...goodMorningSongsFetched);
