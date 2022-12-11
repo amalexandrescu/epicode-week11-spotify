@@ -9,6 +9,7 @@ import MainSearch from "./components/MainSearch";
 import ArtistPage from "./components/ArtistPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
+import LikedSongsPage from "./components/LikedSongsPage";
 
 function App() {
   return (
@@ -16,13 +17,12 @@ function App() {
       <Container fluid className="main-container px-0">
         <div className="d-flex">
           <LateralNavbar className="" />
-          <div className=" bg-primary right-container px-0">
+          <div className="right-container px-0">
             <TopNavbar />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              {/* <Route path="/" element={<MainSearch />} /> */}
-              {/* <Route path="/" element={<RecentlyPlayedSection />} /> */}
               <Route path="/:artist" element={<ArtistPage />} />
+              <Route path="/liked-songs" element={<LikedSongsPage />} />
             </Routes>
           </div>
         </div>

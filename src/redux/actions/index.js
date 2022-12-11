@@ -2,6 +2,32 @@ export const GET_SONGS = "GET_SONGS";
 export const SEARCH_SONG = "SEARCH_SONG";
 export const GET_CURRENT_SEARCH_SONGS = "GET_CURRENT_SEARCH_SONGS";
 export const SELECT_SONG_CARD = "SELECT_SONG_CARD";
+export const SELECT_SEARCH_BUTTON = "SELECT_SEARCH_BUTTON";
+export const ADD_TO_LIKED_SONGS = "ADD_TO_LIKED_SONGS";
+export const REMOVE_FROM_LIKED_SONGS = "REMOVE_FROM_LIKED_SONGS";
+export const FETCH_SONGS_GM_SECTION = "FETCH_SONGS_GM_SECTION";
+export const FINISH_LOADING = "FINISH_LOADING";
+
+export const removeFromLikedSongsAction = (index) => {
+  return {
+    type: REMOVE_FROM_LIKED_SONGS,
+    payload: index,
+  };
+};
+
+export const addToLikedSongsAction = (song) => {
+  return {
+    type: ADD_TO_LIKED_SONGS,
+    payload: song,
+  };
+};
+
+export const selectSearchButtonAction = (value) => {
+  return {
+    type: SELECT_SEARCH_BUTTON,
+    payload: value,
+  };
+};
 
 export const selectSongCardAction = (cardId) => {
   return {
@@ -60,5 +86,45 @@ export const getSongsAction = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+};
+
+const artistArray = [
+  "queen",
+  "camila cabello",
+  "rihanna",
+  "ed sheeran",
+  "beyonce",
+  "shawn mendes",
+];
+
+export const getGoodMorningSectionSongs = () => {
+  return async (dispatch, getState) => {
+    console.log("good morning section fetching songs...");
+    try {
+      for (let i = 0; i < artistArray.length; i++) {
+        let response = await fetch(
+          `https://striveschool-api.herokuapp.com/api/deezer/search?q=${artistArray[i]}`
+        );
+        if (response.ok) {
+          let fetchedSongs = await response.json();
+          dispatch({
+            type: FETCH_SONGS_GM_SECTION,
+            payload: fetchedSongs.data.slice(0, 1),
+          });
+        } else {
+          console.log("error");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const finishedLoadingAction = (value) => {
+  return {
+    type: FINISH_LOADING,
+    payload: value,
   };
 };

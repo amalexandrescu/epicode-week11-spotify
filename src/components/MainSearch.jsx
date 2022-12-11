@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { InputGroup, Form, Row } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { searchSongAction } from "../redux/actions";
 import { getCurrentSearchSongsAction } from "../redux/actions";
@@ -19,8 +19,18 @@ const MainSearch = () => {
     navigate(`/${query}`);
   };
 
+  const searchButtonState = useSelector(
+    (state) => state.currentSearch.selectedSearchButton
+  );
+
   return (
-    <Row className="justify-content-center mt-5">
+    <Row
+      className={
+        searchButtonState === false
+          ? `justify-content-center mt-5 invisible`
+          : `justify-content-center mt-5 visible`
+      }
+    >
       <Form onSubmit={submitForm}>
         <InputGroup className="mb-3 input-search align-center">
           <Form.Control

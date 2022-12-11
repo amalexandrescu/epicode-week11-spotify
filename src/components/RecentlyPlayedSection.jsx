@@ -18,8 +18,8 @@ const RecentlyPlayedSection = () => {
   console.log("state", recentlyPlayedSongsFetched);
   return (
     <Container fluid>
-      <h3 className="mb-3">Recently Played</h3>
-      <Row className="recently-played-section-row">
+      <h3 className="mb-3 text-light">Recently Played</h3>
+      <Row className="recently-played-section-row mb-5">
         {recentlyPlayedSongsFetched &&
           recentlyPlayedSongsFetched.map((song) => {
             return (
@@ -27,7 +27,14 @@ const RecentlyPlayedSection = () => {
                 key={song.id}
                 song={song}
                 onClick={() => {
-                  dispatch(selectSongCardAction(song.id));
+                  dispatch(
+                    selectSongCardAction({
+                      id: song.id,
+                      image: song.artist.picture_small,
+                      artist: song.artist.name,
+                      song: song.title_short,
+                    })
+                  );
                 }}
               />
             );

@@ -1,25 +1,17 @@
 import * as Icon from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 
 const TopNavbar = () => {
   return (
-    // <div className="bg-info top-navbar">top navbar</div>
     <div id="navbar-container" className="sticky-top top-navbar">
       <nav className="container-fluid navbar navbar-expand-lg navbar-light d-flex justify-content-between align-items-center">
         <div>
           <ul className="navbar-nav">
             <li className="nav-item active">
-              <a className="nav-link left-arrow-link px-0 mr-3" href="#home">
+              <Link to="/">
                 <Icon.ChevronLeft className="arrowLeftAndRight arrow-left" />
-
-                {/* <i className="bi bi-chevron-left arrowLeftAndRight arrow-left"></i> */}
-                <span className="sr-only">(current)</span>
-              </a>
-            </li>
-            <li className="nav-item d-none d-sm-block">
-              <a href="#home" className="nav-link px-0 disabled">
-                <Icon.ChevronRight className="arrowLeftAndRight arrow-right" />
-                {/* <i className="bi bi-chevron-right arrowLeftAndRight arrow-right"></i> */}
-              </a>
+              </Link>
+              <span className="sr-only">(current)</span>
             </li>
           </ul>
         </div>
@@ -27,7 +19,7 @@ const TopNavbar = () => {
           <a
             id="account-container"
             className="py-3 btn btn-secondary dropdown-toggle d-flex justify-content-between align-items-center"
-            href="#home"
+            href="/"
             role="button"
             data-toggle="dropdown"
             aria-expanded="false"
@@ -35,7 +27,6 @@ const TopNavbar = () => {
             <div className="d-flex align-items-center overflow-hidden align-to-the-left">
               <span id="profile-image">
                 <Icon.Person className="person-icon-account" />
-                {/* <i className="bi bi-person person-icon-account"></i> */}
               </span>
               <span className="pl-1 wirte-just-on-one-line">
                 namedsddsajdsjkdnsak
