@@ -1,11 +1,14 @@
 import * as Icon from "react-bootstrap-icons";
 import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 const FooterMusicPlayer = () => {
   const selectedSong = useSelector(
     (state) => state.recentlyPlayedSection.selectedSongCard
   );
+
+  const likedSongs = useSelector((state) => state.likedSongs.likedSongs);
 
   console.log("selected song footer", selectedSong);
 
@@ -43,7 +46,14 @@ const FooterMusicPlayer = () => {
                   <div>{selectedSong.artist}</div>
                 </div>
                 <div className="my-auto">
-                  <Icon.HeartFill className="text-secondary" />
+                  <Icon.HeartFill
+                    className={
+                      likedSongs.find((song) => song.id === selectedSong.id) ===
+                      undefined
+                        ? "text-secondary"
+                        : "text-success"
+                    }
+                  />
                 </div>
               </div>
             </>

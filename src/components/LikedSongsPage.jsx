@@ -29,7 +29,7 @@ const LikedSongsPage = () => {
                     className="removeFromLikedSongsContainer"
                     onClick={() => {
                       console.log("index of the want to remove song", index);
-                      dispatch(removeFromLikedSongsAction(index));
+                      dispatch(removeFromLikedSongsAction(likedSong.id));
                     }}
                   >
                     <Icon.Trash />

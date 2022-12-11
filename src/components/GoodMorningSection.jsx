@@ -23,15 +23,9 @@ const GoodMorningSection = () => {
   );
   console.log("gmsection songs fetched", goodMorningSongsFetched);
 
-  // const test = false;
-
-  useEffect(() => {
-    setFetchedSongs(...goodMorningSongsFetched);
-    // console.log("fetchedSOngs", fetchedSongs);
-    // if (fetchedSongs.length === 6) {
-    // dispatch(finishedLoadingAction(false));
-    // }
-  }, []);
+  // useEffect(() => {
+  //   setFetchedSongs(...goodMorningSongsFetched);
+  // }, []);
 
   return (
     <Container fluid className="">

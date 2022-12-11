@@ -17,7 +17,7 @@ const mainSearchReducer = (state = initialState, action) => {
       return {
         ...state,
         likedSongs: state.likedSongs.filter((song, index) => {
-          if (index !== action.payload) {
+          if (song.id !== action.payload) {
             return song;
           }
         }),

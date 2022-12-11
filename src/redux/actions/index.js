@@ -112,6 +112,10 @@ export const getGoodMorningSectionSongs = () => {
             type: FETCH_SONGS_GM_SECTION,
             payload: fetchedSongs.data.slice(0, 1),
           });
+          dispatch({
+            type: FINISH_LOADING,
+            payload: false,
+          });
         } else {
           console.log("error");
         }

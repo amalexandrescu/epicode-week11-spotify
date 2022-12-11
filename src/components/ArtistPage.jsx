@@ -1,7 +1,11 @@
 import * as Icon from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, ListGroup, Row } from "react-bootstrap";
-import { addToLikedSongsAction, selectSongCardAction } from "../redux/actions";
+import {
+  addToLikedSongsAction,
+  selectSongCardAction,
+  removeFromLikedSongsAction,
+} from "../redux/actions";
 import { useState } from "react";
 
 const ArtistPage = () => {
@@ -10,6 +14,7 @@ const ArtistPage = () => {
   const currentSearch = useSelector(
     (state) => state.currentSearch.currentSearch
   );
+  const likedSongs = useSelector((state) => state.likedSongs.likedSongs);
 
   const currentSearchSongsFetched = useSelector(
     (state) => state.currentSearch.currentSearchSongs
@@ -17,8 +22,13 @@ const ArtistPage = () => {
 
   const dispatch = useDispatch();
 
-  const addToLikedSongs = (song) => {
-    dispatch(addToLikedSongsAction(song));
+  const toggleLike = (song, isLiked) => {
+    console.log("isLIked", isLiked);
+    if (isLiked) {
+      dispatch(removeFromLikedSongsAction(song.id));
+    } else {
+      dispatch(addToLikedSongsAction(song));
+    }
   };
 
   console.log("current search", currentSearch);
@@ -73,8 +83,11 @@ const ArtistPage = () => {
           <ol className="text-light">
             {currentSearchSongsFetched &&
               currentSearchSongsFetched.map((song) => {
+                const isLiked = likedSongs.find((s) => song.id === s.id);
+
                 return (
                   <li key={song.id} className="dark-background">
+                    {/* <div>{isLiked ? "Liked" : "Not liked"}</div> */}
                     <div className="d-flex justify-content-between align-items-center">
                       <div
                         onClick={() => {
@@ -93,13 +106,21 @@ const ArtistPage = () => {
                       </div>
                       <div className="d-flex">
                         <div
-                          className="mr-3 heart-container"
+                          className={
+                            isLiked
+                              ? "mr-3 heart-container text-success"
+                              : "mr-3 hearts-container"
+                          }
                           onClick={() => {
                             setCurrentLikedSong(song.title_short);
-                            addToLikedSongs({
-                              song: song.title_short,
-                              artist: song.artist.name,
-                            });
+                            toggleLike(
+                              {
+                                id: song.id,
+                                song: song.title_short,
+                                artist: song.artist.name,
+                              },
+                              isLiked
+                            );
                           }}
                         >
                           <Icon.HeartFill />
